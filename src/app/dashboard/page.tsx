@@ -1,6 +1,6 @@
 const DashBoardPage = () => {
   return (
-    <div className=" bg-red-300 ">
+    <div>
       <h3 className=" text-centers "> This is DashBoard</h3>
     </div>
   );

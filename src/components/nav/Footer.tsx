@@ -34,11 +34,12 @@ const Footer: React.FC<FooterProps> = () => {
       {/* <div className=" flex items-center justify-between h-full px-4 w-full bg-black text-whites ">
         
       </div> */}
-      <footer className=" w-full flex items-center justify-center ">
-        <div className=" w-full px-8 ">
-          <div className="  mx-auto grid place-content-center  grid-cols-2 gap-8 py-12 md:grid-cols-3 lg:grid-cols-4 ">
+      <footer className=" lg:px-48 md:px-20 w-full flex items-center justify-around  ">
+        <div className=" w-full bg-slate-400 ">
+          {/* grid items-center  grid-cols-2 gap-8 py-12 md:grid-cols-3 lg:grid-cols-4 */}
+          <div className=" flex flex-row  items-center justify-center ">
             {SITEMAP.map(({ title, links }, key) => (
-              <div key={key} className="w-full">
+              <div key={key} className=" w-full ">
                 <div className="mb-4 font-bold uppercase">{title}</div>
                 <ul className="space-y-1">
                   {links.map((link, key) => (

@@ -1,6 +1,7 @@
 // "use client";
 import { getBaseUrl } from "@/helpers/config/envConfig";
 import Image from "next/image";
+import Link from "next/link";
 
 const PackageCard = async () => {
   const query: Record<string, any> = {};
@@ -9,11 +10,11 @@ const PackageCard = async () => {
   });
   const { data } = await res.json();
 
-  // console.log("data all:", data);
+  //console.log("data all:", data.data);
   return (
     <div>
-      <div className=" px-5 flex flex-col items-center justify-center ">
-        <div className=" bg-blue-500 h-auto w-[260px] p-2 rounded-t ">
+      <div className=" flex flex-col items-center justify-center ">
+        <div className=" bg-blue-500 h-auto w-[260px] p-2 rounded ">
           <div className=" object-cover ">
             <Image
               src="/images/cardimg.jpg"
@@ -31,9 +32,11 @@ const PackageCard = async () => {
               a typeface without relying on meaningful content.
             </p>
             <p>Price: $20</p>
-            <button className=" w-full  bg-white text-black h-10 rounded text-lg ">
-              Details
-            </button>
+            <Link href="/">
+              <button className=" w-full  bg-white text-black h-10 rounded text-lg ">
+                Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

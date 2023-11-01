@@ -6,7 +6,7 @@ import PackageCard from "@/components/package/PackageCard";
 
 const Homepage = () => {
   return (
-    <div className=" text-blue-500 lg:px-20 md:px-3 sm:px-3 ">
+    <div className="lg:px-48 md:px-20  w-full text-blue-500 sm:px-3 ">
       <div className=" pt-3 flex items-center justify-center px-5 ">
         <Search />
       </div>
@@ -21,11 +21,11 @@ const Homepage = () => {
         </p>
       </div>
       {/*=========== hero card================== */}
-      <div>
+      {/* <div>
         <div className=" flex flex-row ">
           <Hero />
         </div>
-      </div>
+      </div> */}
       {/*=========== Packages card================== */}
       <div className=" flex flex-col items-center justify-center pt-20 text-black ">
         <h1 className=" text-4xl font-extrabold">Special Offers</h1>
@@ -34,7 +34,7 @@ const Homepage = () => {
           the world!
         </p>
       </div>
-      <div className=" flex flex-wrap items-center justify-center pt-10 gap-3 ">
+      <div className=" flex flex-wrap items-center justify-center pt-10 gap-5 ">
         <PackageCard />
         <PackageCard />
         <PackageCard />

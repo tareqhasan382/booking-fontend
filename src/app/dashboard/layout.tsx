@@ -1,3 +1,4 @@
+import SideBar from "@/components/dashboard/SideBar";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Dashboard App",
@@ -6,12 +7,15 @@ export const metadata: Metadata = {
 
 const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-    // <div className=" flex ">
-    //   <div className=" w-full ">{children}</div>
-    // </div>
+    // <html lang="en">
+    //   <body>{children}</body>
+    // </html>
+    <div className=" flex ">
+      <div className=" w-[20%] h-screen bg-slate-400  ">
+        <SideBar />
+      </div>
+      <div className=" w-full bg-red-300 ">{children}</div>
+    </div>
   );
 };
 
