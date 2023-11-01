@@ -21,7 +21,7 @@ const page = async () => {
   // const myCourses = data?.myCourses;
   // const meta = data?.meta;
 
-  const res = await fetch(`${getBaseUrl()}/trips?limit=8`, {
+  const res = await fetch(`${getBaseUrl()}/api/v1/trips?limit=8`, {
     cache: "no-store",
   });
   const { data } = await res.json();
