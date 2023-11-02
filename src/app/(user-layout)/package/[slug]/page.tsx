@@ -2,7 +2,7 @@ import { getBaseUrl } from "@/helpers/config/envConfig";
 import Image from "next/image";
 
 const DetailsPage = async ({ params }: { params: { slug: string } }) => {
-  const res = await fetch(`${getBaseUrl()}/trips/${params.slug}`, {
+  const res = await fetch(`${getBaseUrl()}/api/v1/trips/${params.slug}`, {
     cache: "no-store",
   });
   const { data } = await res.json();
