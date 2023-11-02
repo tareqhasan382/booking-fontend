@@ -310,6 +310,7 @@ export interface SectionsEntity {
   classSchedules?: IOfferedCourseSchedule[] | null;
 }
 export type ITrips = {
+  id: string;
   title: string;
   description: string;
   imageSrc: string;

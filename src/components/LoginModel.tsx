@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 const LoginModel = () => {
   const router = useRouter();
   const [userLogin] = useUserLoginMutation();
-  console.log("userInto:", getUserInfo());
+  // console.log("userInto:", getUserInfo());
   const {
     register,
     handleSubmit,
@@ -22,7 +22,7 @@ const LoginModel = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
-    console.log(data);
+    //console.log(data);
     const res: any = await userLogin({ ...data }).unwrap();
     router.refresh();
     storeUserInfo({ token: res.accessToken });

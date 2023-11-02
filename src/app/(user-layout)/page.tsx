@@ -27,21 +27,14 @@ const Homepage = () => {
         </div>
       </div> */}
       {/*=========== Packages card================== */}
-      <div className=" flex flex-col items-center justify-center pt-20 text-black ">
+      <div className="  flex flex-col items-center justify-center pt-20 text-black ">
         <h1 className=" text-4xl font-extrabold">Special Offers</h1>
         <p className=" lg:px-1 md:px-3 text-center ">
           From historical cities to natural specteculars, come see the best to
           the world!
         </p>
       </div>
-      <div className=" flex flex-wrap items-center justify-center pt-10 gap-5 ">
-        <PackageCard />
-        <PackageCard />
-        <PackageCard />
-        <PackageCard />
-        <PackageCard />
-        <PackageCard />
-        <PackageCard />
+      <div className=" w-full ">
         <PackageCard />
       </div>
       <div className=" flex flex-col items-center justify-center text-black py-20 lg:px-20 ">

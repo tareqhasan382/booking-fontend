@@ -2,29 +2,13 @@ import { getBaseUrl } from "@/helpers/config/envConfig";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+//?limit=8
 const page = async () => {
-  // const query: Record<string, any> = {};
-
-  // const [page, setPage] = useState<number>(1);
-  // const [size, setSize] = useState<number>(10);
-  // const [sortBy, setSortBy] = useState<string>("");
-  // const [sortOrder, setSortOrder] = useState<string>("");
-
-  // query["limit"] = size;
-  // query["page"] = page;
-  // query["sortBy"] = sortBy;
-  // query["sortOrder"] = sortOrder;
-
-  // const { data, isLoading } = useMyCoursesQuery({ ...query });
-
-  // const myCourses = data?.myCourses;
-  // const meta = data?.meta;
-
-  const res = await fetch(`${getBaseUrl()}/api/v1/trips?limit=8`, {
+  const res = await fetch(`${getBaseUrl()}/trips`, {
     cache: "no-store",
   });
   const { data } = await res.json();
+  console.log(data);
   return (
     <div className=" lg:px-48 md:px-20  w-full ">
       {/* flex flex-wrap items-center justify-center pt-10 gap-5 */}
@@ -40,7 +24,7 @@ const page = async () => {
                 height={400}
                 width={400}
                 alt="img"
-                className=" rounded "
+                className=" rounded"
               />
             </div>
             <div className=" w-full text-white flex flex-col items-center justify-center ">
