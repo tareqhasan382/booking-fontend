@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 //?limit=8
 const page = async () => {
-  const res = await fetch(`${getBaseUrl()}/trips`, {
+  const res = await fetch(`${getBaseUrl()}/api/v1trips`, {
     cache: "no-store",
   });
   const { data } = await res.json();

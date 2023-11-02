@@ -4,7 +4,7 @@ import Link from "next/link";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 const PackageCard = async () => {
-  const res = await fetch(`${getBaseUrl()}/trips`, {
+  const res = await fetch(`${getBaseUrl()}/api/v1/trips`, {
     cache: "no-store",
   });
   const { data } = await res.json();

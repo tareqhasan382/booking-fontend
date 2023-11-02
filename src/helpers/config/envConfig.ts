@@ -1,6 +1,6 @@
 export const getBaseUrl = (): string => {
   return (
     process.env.NEXT_PUBLIC_API_BASE_URL ||
-    "https://booking-server-five.vercel.app/ap1/v1"
+    "https://booking-server-five.vercel.app"
   );
 };
