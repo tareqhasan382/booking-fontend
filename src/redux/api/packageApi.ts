@@ -12,14 +12,7 @@ export const packageApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["addPackage"],
     }),
-    // userLogin: build.mutation({
-    //   query: (loginData) => ({
-    //     url: `${AUTH_URL}/login`,
-    //     method: "POST",
-    //     data: loginData,
-    //   }),
-    //   invalidatesTags: ["user"],
-    // }),
+
     getPackages: build.query({
       query: (arg: Record<string, any>) => ({
         url: "/trips",
@@ -33,7 +26,17 @@ export const packageApi = baseApi.injectEndpoints({
         };
       },
     }),
+    getSinglePackage: build.query({
+      query: (slug: string) => ({
+        url: `/api/v1/trips/${slug}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetPackagesQuery, useAddPackagesMutation } = packageApi;
+export const {
+  useGetPackagesQuery,
+  useAddPackagesMutation,
+  useGetSinglePackageQuery,
+} = packageApi;
