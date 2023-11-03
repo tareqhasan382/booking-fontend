@@ -27,7 +27,7 @@ export const packageApi = baseApi.injectEndpoints({
       },
     }),
     getSinglePackage: build.query({
-      query: (slug: string) => ({
+      query: (slug) => ({
         url: `/api/v1/trips/${slug}`,
         method: "GET",
       }),
