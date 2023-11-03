@@ -11,6 +11,15 @@ const page = async () => {
   console.log(data);
   return (
     <div className=" lg:px-48 md:px-20  w-full ">
+      <div className=" flex flex-col justify-center items-center pt-10 text-black px-7 ">
+        <h1 className=" lg:text-4xl sm:text-4xl font-extrabold ">
+          Popular Destinations
+        </h1>
+        <p>
+          From historical cities to natural specteculars, come see the best to
+          the world!
+        </p>
+      </div>
       {/* flex flex-wrap items-center justify-center pt-10 gap-5 */}
       <div className=" flex flex-wrap items-center justify-center py-10 gap-5 ">
         {data?.data?.map((item: any) => (

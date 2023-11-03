@@ -11,7 +11,7 @@ const Homepage = () => {
         <Search />
       </div>
       {/*=========== hero card================== */}
-      <div className=" pt-10 text-black px-7 ">
+      <div className=" flex flex-col justify-center items-center pt-10 text-black px-7 ">
         <h1 className=" lg:text-4xl sm:text-4xl font-extrabold ">
           Popular Destinations
         </h1>
@@ -39,7 +39,7 @@ const Homepage = () => {
       </div>
       <div className=" flex flex-col items-center justify-center text-black py-20 lg:px-20 ">
         <h1 className=" text-4xl font-extrabold mb-10 ">Why Hikings?</h1>
-        <div className=" flex flex-wrap gap-5 items-center justify-around w-full ">
+        <div className=" flex flex-wrap gap-5 items-center justify-around w-full sm:px-3 lg:px-2 ">
           <Feature />
           <Feature />
           <Feature />

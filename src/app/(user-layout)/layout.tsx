@@ -24,7 +24,9 @@ export default function RootLayout({
           <hr />
           {children}
         </div>
-        <Footer SITEMAP={[]} currentYear={0} />
+        <div className=" w-full ">
+          <Footer SITEMAP={[]} currentYear={0} />
+        </div>
       </div>
     </>
   );

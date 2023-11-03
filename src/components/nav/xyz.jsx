@@ -85,3 +85,4 @@ const PropertyForm = () => {
 
 export default PropertyForm;
 
+// className=" flex flex-col items-center gap-2 justify-center lg:w-[375px] sm:w-[350px] "

@@ -8,7 +8,7 @@ const PackageCard = async () => {
     cache: "no-store",
   });
   const { data } = await res.json();
-  console.log("data:", data);
+  // console.log("data:", data);
   return (
     <div className="w-full ">
       {/* flex flex-wrap items-center justify-center pt-10 gap-5 */}

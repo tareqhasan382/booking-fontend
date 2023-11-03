@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nunito } from "next/font/google";
 import Providers from "@/lib/Providers";
+// import { Provider } from "react-redux";
+// import { store } from "@/redux/store";
 const font = Nunito({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Booking App",
@@ -21,3 +23,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// import { Provider } from "react-redux";

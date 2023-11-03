@@ -9,6 +9,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { BsXLg, BsList, BsGithub } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import Package from "../view/Package";
+import { BsCartCheckFill } from "react-icons/bs";
 const styles = {
   navlink:
     " cursor-pointer ml-10 uppercase border-b border-black hover:border-red-300 text-xl ",
@@ -44,6 +45,11 @@ const Navbar = () => {
               </li>
               <li className={styles.navlink}>
                 <Link href="/">Contact</Link>
+              </li>
+              <li className={styles.navlink}>
+                <Link href="/cart">
+                  <BsCartCheckFill size={24} />
+                </Link>
               </li>
               <li className=" flex items-center space-x-5 text-black ml-20  ">
                 {isLoggedIn() ? (

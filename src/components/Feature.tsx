@@ -4,7 +4,7 @@ import React from "react";
 const Feature = () => {
   return (
     <div>
-      <div className=" flex flex-col items-center gap-2 justify-center w-[375px] ">
+      <div className=" flex flex-col items-center gap-2 justify-center lg:w-[375px] sm:w-[350px] ">
         <div className=" rounded-full ">
           <Image
             src="/images/cardimg.jpg"
