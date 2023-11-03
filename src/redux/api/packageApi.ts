@@ -27,10 +27,15 @@ export const packageApi = baseApi.injectEndpoints({
       },
     }),
     getSinglePackage: build.query({
-      query: (slug) => ({
-        url: `/api/v1/trips/${slug}`,
+      query: (id) => ({
+        url: `/api/v1/trips/${id}`,
         method: "GET",
       }),
+      // transformResponse: (response: ITrips) => {
+      //   return {
+      //     package: response,
+      //   };
+      // },
     }),
   }),
 });

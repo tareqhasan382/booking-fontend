@@ -5,11 +5,12 @@ import { addToCart } from "@/redux/cardSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { ITrips } from "@/types";
 import Image from "next/image";
-
-const DetailsPage = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+//
+const DetailsPage = ({ params }: any) => {
+  const { slug: id } = params;
   const dispatch = useAppDispatch();
-  const { data, isLoading } = useGetSinglePackageQuery(slug);
+  const { data, isLoading } = useGetSinglePackageQuery(id);
+  // console.log("redux:", data);
   const handleAddPackage = (data: ITrips) => {
     dispatch(addToCart(data));
   };

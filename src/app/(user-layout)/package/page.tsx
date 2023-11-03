@@ -8,7 +8,7 @@ const page = async () => {
     cache: "no-store",
   });
   const { data } = await res.json();
-  console.log(data);
+  // console.log(data);
   return (
     <div className=" lg:px-48 md:px-20  w-full ">
       <div className=" flex flex-col justify-center items-center pt-10 text-black px-7 ">
