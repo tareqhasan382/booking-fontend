@@ -71,7 +71,12 @@ const Navbar = () => {
             </ul>
           </div>
           {/*======================================== Mobile menu ============================================*/}
-          <div className=" sm:hidden pl-24">
+          <div className=" sm:hidden pl-24 flex ">
+            <div className=" px-6 ">
+              <Link href="/cart">
+                <BsCartCheckFill size={24} />
+              </Link>
+            </div>
             <BsList
               onClick={() => setMenuOpen(!menuOpen)}
               className="cursor-pointer h-8 w-8 text-black  "

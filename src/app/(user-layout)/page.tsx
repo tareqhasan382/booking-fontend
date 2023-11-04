@@ -2,13 +2,15 @@ import Container from "@/components/Container";
 import Feature from "@/components/Feature";
 import Hero from "@/components/Hero";
 import Search from "@/components/Search";
+import HeroSearch from "@/components/models/HeroSearch";
 import PackageCard from "@/components/package/PackageCard";
 
 const Homepage = () => {
   return (
     <div className="lg:px-48 md:px-20  w-full text-blue-500 sm:px-3 ">
       <div className=" pt-3 flex items-center justify-center px-5 ">
-        <Search />
+        {/* <Search /> */}
+        <HeroSearch />
       </div>
       {/*=========== hero card================== */}
       <div className=" flex flex-col justify-center items-center pt-10 text-black px-7 ">

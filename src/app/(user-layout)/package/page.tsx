@@ -10,7 +10,7 @@ const page = async () => {
   const { data } = await res.json();
   // console.log(data);
   return (
-    <div className=" lg:px-48 md:px-20  w-full ">
+    <div className=" lg:px-48 md:px-20 h-auto  w-full ">
       <div className=" flex flex-col justify-center items-center pt-10 text-black px-7 ">
         <h1 className=" lg:text-4xl sm:text-4xl font-extrabold ">
           Popular Destinations
@@ -25,7 +25,7 @@ const page = async () => {
         {data?.data?.map((item: any) => (
           <div
             key={item.id}
-            className=" bg-blue-500 h-auto w-[260px] p-2 rounded  "
+            className=" bg-blue-500 h-auto w-[260px] p-2 rounded "
           >
             <div className=" object-cover ">
               <Image

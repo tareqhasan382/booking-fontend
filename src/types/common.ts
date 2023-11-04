@@ -321,6 +321,7 @@ export type ITrips = {
   locationValue: string;
   price: number;
   userId: string;
+  quantity?: number;
 };
 export interface IStudentEnrolledCourseMark {
   id: string;
