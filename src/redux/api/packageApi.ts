@@ -28,7 +28,7 @@ export const packageApi = baseApi.injectEndpoints({
     }),
     getSinglePackage: build.query({
       query: (id) => ({
-        url: `/api/v1/trips/${id}`,
+        url: `api/v1/trips/${id}`,
         method: "GET",
       }),
       // transformResponse: (response: ITrips) => {
