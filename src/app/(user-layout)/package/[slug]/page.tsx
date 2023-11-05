@@ -1,22 +1,28 @@
 "use client";
+import Booking from "@/components/Booking";
+import DateRangePickerComponent from "@/components/cart/DateRange";
 import { useGetSinglePackageQuery } from "@/redux/api/packageApi";
 import { addToCart } from "@/redux/cardSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { ITrips } from "@/types";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 //
 const DetailsPage = ({ params }: any) => {
+  const router = useRouter();
   const { slug: id } = params;
   const dispatch = useAppDispatch();
   const { data, isLoading } = useGetSinglePackageQuery(id);
   // console.log("redux:", data);
   const handleAddPackage = (data: ITrips) => {
-    dispatch(addToCart(data));
-    toast.success("This is added success notification!", {
-      position: "top-right",
-      autoClose: 1000, // Optional: Close after 3 seconds
-    });
+    router.push("package/booking");
+    // <Booking data={data} />;
+    // dispatch(addToCart(data)); || `package/${item.id}`
+    // toast.success("This is added success notification!", {
+    //   position: "top-right",
+    //   autoClose: 1000, // Optional: Close after 3 seconds
+    // });
   };
   return (
     <div className=" lg:px-48 md:px-20 w-full flex flex-col items-center justify-center py-10">
@@ -45,6 +51,7 @@ const DetailsPage = ({ params }: any) => {
           </p>
           <button
             onClick={() => handleAddPackage(data)}
+            // onClick={() => <Booking data={data} />}
             className=" w-[200px] bg-black text-white py-2 rounded lg:text-xl md:text-base font-bold "
           >
             Add To Card
@@ -57,7 +64,7 @@ const DetailsPage = ({ params }: any) => {
       </div>
       <div className=" pt-8 h-auto ">
         <h1 className=" text-right text-xl font-bold "> Reviews </h1>
-        <div className=" h-32 "></div>
+        <div className=" h-32  "></div>
       </div>
     </div>
   );

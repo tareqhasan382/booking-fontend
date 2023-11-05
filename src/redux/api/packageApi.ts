@@ -6,7 +6,7 @@ export const packageApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     addPackages: build.mutation({
       query: (data) => ({
-        url: "/trip",
+        url: "trip",
         method: "POST",
         data: data,
       }),
@@ -15,16 +15,16 @@ export const packageApi = baseApi.injectEndpoints({
 
     getPackages: build.query({
       query: (arg: Record<string, any>) => ({
-        url: "/api/v1/trips",
+        url: "api/v1/trips",
         method: "GET",
         params: arg,
       }),
-      transformResponse: (response: any, meta: IMeta) => {
-        return {
-          packages: response,
-          meta,
-        };
-      },
+      // transformResponse: (response: any, meta: IMeta) => {
+      //   return {
+      //     packages: response,
+      //     meta,
+      //   };
+      // },
     }),
     getSinglePackage: build.query({
       query: (id) => ({
