@@ -1,6 +1,11 @@
 import { ITrips } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+//
+// const savedCartState = localStorage.getItem("cart");
+// const initialState = savedCartState
+//   ? JSON.parse(savedCartState)
+//   : { packages: [], total: 0 };
 
 interface ICart {
   packages: ITrips[];
@@ -17,7 +22,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<ITrips>) => {
       const existing = state.packages.find(
-        (item) => item.id === action.payload.id
+        (item: any) => item.id === action.payload.id
       );
       if (existing) {
         return;
@@ -30,7 +35,7 @@ const cartSlice = createSlice({
 
     removeItemToCart: (state, action: PayloadAction<ITrips>) => {
       state.packages = state.packages.filter(
-        (item) => item.id !== action.payload.id
+        (item: any) => item.id !== action.payload.id
       );
       state.total -= action.payload.price;
       localStorage.setItem("cart", JSON.stringify(state));

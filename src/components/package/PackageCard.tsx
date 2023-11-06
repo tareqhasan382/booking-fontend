@@ -6,11 +6,14 @@ import { BsFillHeartFill } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useGetPackagesQuery } from "@/redux/api/packageApi";
 import Loading from "@/app/(user-layout)/loading";
+import { addToCart } from "@/redux/cardSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 const PackageCard = () => {
+  const dispatch = useAppDispatch();
   const { data, isLoading } = useGetPackagesQuery({ undefined });
   const handleFavorite = (item: any) => {
-    console.log(item);
+    dispatch(addToCart(item));
   };
   return (
     <div className="w-full ">

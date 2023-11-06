@@ -10,11 +10,12 @@ import Image from "next/image";
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import { getUserInfo, storeUserInfo } from "@/utils/auth.service";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const LoginModel = () => {
   const router = useRouter();
   const [userLogin] = useUserLoginMutation();
-  // console.log("userInto:", getUserInfo());
+
   const {
     register,
     handleSubmit,
@@ -22,11 +23,15 @@ const LoginModel = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
-    //console.log(data);
     const res: any = await userLogin({ ...data }).unwrap();
-    router.refresh();
-    storeUserInfo({ token: res.accessToken });
-    console.log(res);
+    if (res?.accessToken) {
+      storeUserInfo({ token: res.accessToken });
+      router.push("/");
+    } else {
+      toast.error("loggedIn Field", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
 
   return (

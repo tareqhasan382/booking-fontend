@@ -44,11 +44,12 @@ const Navbar = () => {
                 <Link href="/package">About</Link>
               </li>
               <li className={styles.navlink}>
-                <Link href="/">Contact</Link>
+                <Link href="/">CheckOut</Link>
               </li>
               <li className={styles.navlink}>
                 <Link href="/cart">
-                  <BsCartCheckFill size={24} />
+                  {/* <BsCartCheckFill size={24} /> */}
+                  <p>WishList</p>
                 </Link>
               </li>
               <li className=" flex items-center space-x-5 text-black ml-20  ">
@@ -72,11 +73,11 @@ const Navbar = () => {
           </div>
           {/*======================================== Mobile menu ============================================*/}
           <div className=" sm:hidden pl-24 flex ">
-            <div className=" px-6 ">
+            {/* <div className=" px-6 ">
               <Link href="/cart">
                 <BsCartCheckFill size={24} />
               </Link>
-            </div>
+            </div> */}
             <BsList
               onClick={() => setMenuOpen(!menuOpen)}
               className="cursor-pointer h-8 w-8 text-black  "
@@ -107,7 +108,13 @@ const Navbar = () => {
               <li className=" py-3 hover:underline hover:decoration-red-500  ">
                 {" "}
                 <Link onClick={() => setMenuOpen(false)} href="/">
-                  Contact
+                  CheckOut
+                </Link>{" "}
+              </li>
+              <li className=" py-3 hover:underline hover:decoration-red-500  ">
+                {" "}
+                <Link onClick={() => setMenuOpen(false)} href="/cart">
+                  WishList
                 </Link>{" "}
               </li>
               <li className=" py-3 hover:underline hover:decoration-red-500  ">

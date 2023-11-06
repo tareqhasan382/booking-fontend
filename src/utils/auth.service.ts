@@ -5,7 +5,7 @@ import { getBaseUrl } from "@/helpers/config/envConfig";
 import { decodedToken } from "./jwt";
 
 export const storeUserInfo = ({ token }: { token: string }) => {
-  console.log("AccessToken:", token);
+  // console.log("AccessToken:", token);
   // localStorage.setItem(authKey, token);
   return setToLocalStorage(authKey, token as string);
 };

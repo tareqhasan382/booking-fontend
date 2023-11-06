@@ -1,7 +1,9 @@
 "use client";
 import Booking from "@/components/Booking";
 import DateRangePickerComponent from "@/components/cart/DateRange";
+import Review from "@/components/review/Review";
 import { useGetSinglePackageQuery } from "@/redux/api/packageApi";
+import { useGetReviewQuery } from "@/redux/api/reviewApi";
 import { addToCart } from "@/redux/cardSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { ITrips } from "@/types";
@@ -13,16 +15,12 @@ const DetailsPage = ({ params }: any) => {
   const router = useRouter();
   const { slug: id } = params;
   const dispatch = useAppDispatch();
+  const { data: reviews } = useGetReviewQuery(id);
+  console.log("Reviews:", reviews);
   const { data, isLoading } = useGetSinglePackageQuery(id);
   // console.log("redux:", data);
   const handleAddPackage = (data: ITrips) => {
-    router.push("package/booking");
-    // <Booking data={data} />;
-    // dispatch(addToCart(data)); || `package/${item.id}`
-    // toast.success("This is added success notification!", {
-    //   position: "top-right",
-    //   autoClose: 1000, // Optional: Close after 3 seconds
-    // });
+    router.push(`booking/${data.id}`);
   };
   return (
     <div className=" lg:px-48 md:px-20 w-full flex flex-col items-center justify-center py-10">
@@ -51,10 +49,9 @@ const DetailsPage = ({ params }: any) => {
           </p>
           <button
             onClick={() => handleAddPackage(data)}
-            // onClick={() => <Booking data={data} />}
             className=" w-[200px] bg-black text-white py-2 rounded lg:text-xl md:text-base font-bold "
           >
-            Add To Card
+            Book Now
           </button>
           <p className=" text-lg font-semibold ">Category : {data?.category}</p>
           <p className=" text-lg flex items-center justify-center ">
@@ -62,9 +59,18 @@ const DetailsPage = ({ params }: any) => {
           </p>
         </div>
       </div>
-      <div className=" pt-8 h-auto ">
-        <h1 className=" text-right text-xl font-bold "> Reviews </h1>
-        <div className=" h-32  "></div>
+      <div className=" pt-8 h-auto flex flex-col items-center justify-center ">
+        <h1 className=" text-xl font-bold text-center "> Reviews </h1>
+        <div className=" h-32 w-full  ">
+          <Review id={data?.id} />
+        </div>
+        <div>
+          {reviews?.map((item: any) => (
+            <div key={item.id}>
+              <p>{item?.comment} </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
