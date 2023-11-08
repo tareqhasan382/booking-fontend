@@ -1,5 +1,5 @@
 "use client";
-import { getBaseUrl } from "@/helpers/config/envConfig";
+import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
 import { BsFillHeartFill } from "react-icons/bs";
@@ -8,15 +8,80 @@ import { useGetPackagesQuery } from "@/redux/api/packageApi";
 import Loading from "@/app/(user-layout)/loading";
 import { addToCart } from "@/redux/cardSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
+import { BsSearch } from "react-icons/bs";
 const PackageCard = () => {
   const dispatch = useAppDispatch();
-  const { data, isLoading } = useGetPackagesQuery({ undefined });
+  const query: Record<string, any> = {};
+  const [limit, setLimit] = useState<number>(4);
+  const [page, setPage] = useState<number>(1);
+
+  query["limit"] = limit;
+  query["page"] = page;
+  //limit , page , total
+
+  const { data, isLoading } = useGetPackagesQuery({ ...query });
+  const totalPage = Math.ceil(data?.meta?.total / limit);
+
+  const prevPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    } else {
+      toast.warning("Page number can't be less than 1");
+    }
+  };
+  const nextPage = () => {
+    if (page < totalPage) {
+      setPage(page + 1);
+    } else {
+      toast.warning("Page number can't be more than");
+    }
+  };
   const handleFavorite = (item: any) => {
     dispatch(addToCart(item));
   };
   return (
     <div className="w-full ">
+      {/*====================== searchBar ================================*/}
+      <div className=" pt-3 flex items-center justify-center px-5 ">
+        <div className=" flex gap-2 border border-gray-300 rounded-full py-2 mt-5 px-4 shadow-md shadow-gray-300">
+          <input
+            type="text"
+            placeholder="Anywhere"
+            className="rounded-full font-xl px-1 "
+          />
+          {/* <div className="border-l border-gray-300"></div>
+          <input type="text" placeholder="Any week" />
+          <div className="border-l border-gray-300"></div>
+          <input type="text" placeholder="Add guests" /> */}
+          <button className=" w-8 h-8 flex items-center justify-center bg-red-500 text-white p-1 rounded-full">
+            <BsSearch size={18} />
+          </button>
+        </div>
+      </div>
+      {/*====================== searchBar ================================*/}
+      {/*=========== hero card================== */}
+      <div className=" flex flex-col justify-center items-center pt-10 text-black px-7 ">
+        <h1 className=" lg:text-4xl sm:text-4xl font-extrabold ">
+          Popular Destinations
+        </h1>
+        <p>
+          From historical cities to natural specteculars, come see the best to
+          the world!
+        </p>
+      </div>
+      {/*=========== hero card================== */}
+      <div className="  flex flex-col items-center justify-center pt-20 text-black ">
+        <h1 className=" text-4xl font-extrabold">Special Offers</h1>
+        <p className=" lg:px-1 md:px-3 text-center ">
+          From historical cities to natural specteculars, come see the best to
+          the world!
+        </p>
+      </div>
+      {/*=========== hero card================== */}
+      <h1 className=" text-black text-center ">Package Card</h1>
       {/* flex flex-wrap items-center justify-center pt-10 gap-5 */}
       <div className=" flex flex-wrap items-center justify-center py-10 gap-5 ">
         {isLoading && <Loading />}
@@ -50,9 +115,6 @@ const PackageCard = () => {
                 >
                   <BsFillHeartFill size={22} />
                 </p>
-                {/* <p className=" text-rose-500 ">
-                  <BsFillHeartFill size={22} />
-                </p> */}
               </div>
               <Link
                 href={`package/${item.id}`}
@@ -65,6 +127,25 @@ const PackageCard = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className=" flex bg-gray-300 rounded-lg p-6 mx-4 ">
+        <button
+          onClick={prevPage}
+          className=" h-12 border-2 border-gray-600 px-4 rounded-l-lg hover:bg-gray-600 hover:text-white mr-2  "
+        >
+          <h3 className=" text-xl font-medium ">Prev</h3>
+        </button>
+        <button className=" h-12  px-4 rounded-lg  mr-2  ">
+          <h3 className=" text-xl font-medium ">
+            {page}/{totalPage}
+          </h3>
+        </button>
+        <button
+          onClick={nextPage}
+          className=" h-12 border-2 border-gray-600 px-4 rounded-r-lg hover:bg-gray-600 hover:text-white mr-2  "
+        >
+          <h3 className=" text-xl font-medium ">Next</h3>
+        </button>
       </div>
     </div>
   );

@@ -22,6 +22,7 @@ export const reviewApi = baseApi.injectEndpoints({
         url: `api/v1/review/${id}`,
         method: "GET",
       }),
+
       // transformResponse: (response: ITrips) => {
       //   return {
       //     package: response,

@@ -1,6 +1,8 @@
 "use client";
 import Booking from "@/components/Booking";
+import ClientOnly from "@/components/ClientOnly";
 import DateRangePickerComponent from "@/components/cart/DateRange";
+import Rating from "@/components/review/Rating";
 import Review from "@/components/review/Review";
 import { useGetSinglePackageQuery } from "@/redux/api/packageApi";
 import { useGetReviewQuery } from "@/redux/api/reviewApi";
@@ -16,7 +18,11 @@ const DetailsPage = ({ params }: any) => {
   const { slug: id } = params;
   const dispatch = useAppDispatch();
   const { data: reviews } = useGetReviewQuery(id);
-  console.log("Reviews:", reviews);
+  const rating = reviews?.rating;
+  const stars = Array.from({ length: rating }, (_, index) => index);
+
+  console.log(rating);
+  // console.log("Reviews:", reviews);
   const { data, isLoading } = useGetSinglePackageQuery(id);
   // console.log("redux:", data);
   const handleAddPackage = (data: ITrips) => {
@@ -62,12 +68,26 @@ const DetailsPage = ({ params }: any) => {
       <div className=" pt-8 h-auto flex flex-col items-center justify-center ">
         <h1 className=" text-xl font-bold text-center "> Reviews </h1>
         <div className=" h-32 w-full  ">
-          <Review id={data?.id} />
+          <ClientOnly>
+            <Review id={data?.id} />
+          </ClientOnly>
         </div>
         <div>
           {reviews?.map((item: any) => (
-            <div key={item.id}>
-              <p>{item?.comment} </p>
+            <div key={item.id} className=" flex gap-2 ">
+              <div>
+                <Image
+                  src="/images/logo.png"
+                  height={20}
+                  width={20}
+                  alt="icon"
+                />
+              </div>
+              <div>
+                <p>{item?.comment} </p>
+                {/* <p> {rating} </p> */}
+                <Rating rating={item?.rating} />
+              </div>
             </div>
           ))}
         </div>

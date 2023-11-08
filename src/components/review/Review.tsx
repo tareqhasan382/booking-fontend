@@ -56,28 +56,31 @@ const Review = ({ id: tripsId }: any) => {
     <div className=" w-full py-3 ">
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className=" flex flex-row items-center justify-center gap-3 ">
-            <input
-              required
-              {...register("comment")}
-              type="text"
-              className="peer h-full w-[90%] rounded-[7px] border border-rose-500 px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0  "
-              placeholder=" say something.... "
-            />
-            <div>
-              {ratingData.map((value) => (
-                <span
-                  key={value}
-                  className={`text-2xl cursor-pointer ${
-                    value <= rating
-                      ? "text-gray-500 hover:text-yellow-600 "
-                      : "text-gray-300"
-                  }`}
-                  onClick={() => handleRatingChange(value)}
-                >
-                  ⭐
-                </span>
-              ))}
+          {/* {`w-full ${window.innerWidth <= 375 ? 'flex-col' : 'flex'}`} */}
+          <div className="flex  ">
+            <div className=" items-center justify-center gap-3 ">
+              <input
+                required
+                {...register("comment")}
+                type="text"
+                className="peer h-full w-[90%] rounded-[7px] border border-rose-500 px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0  "
+                placeholder=" say something.... "
+              />
+              <div>
+                {ratingData.map((value) => (
+                  <span
+                    key={value}
+                    className={`text-2xl cursor-pointer ${
+                      value <= rating
+                        ? "text-gray-500 hover:text-yellow-600 "
+                        : "text-gray-300"
+                    }`}
+                    onClick={() => handleRatingChange(value)}
+                  >
+                    ⭐
+                  </span>
+                ))}
+              </div>
             </div>
             {userLoggedIn && (
               <button

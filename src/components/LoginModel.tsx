@@ -23,9 +23,12 @@ const LoginModel = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
+    console.log(data);
     const res: any = await userLogin({ ...data }).unwrap();
+    console.log("Response:", res);
     if (res?.accessToken) {
       storeUserInfo({ token: res.accessToken });
+      router.refresh();
       router.push("/");
     } else {
       toast.error("loggedIn Field", {
