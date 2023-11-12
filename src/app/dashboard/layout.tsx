@@ -27,7 +27,6 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
   if (!isLoading) {
     return (
       <div>
-        {/* <Loadung /> */}
         <h1>Loading..........</h1>
       </div>
     );

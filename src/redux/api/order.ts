@@ -12,6 +12,13 @@ export const orderApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["order"],
     }),
+    allOrders: build.query({
+      query: (arg: Record<string, any>) => ({
+        url: "api/v1/orders",
+        method: "GET",
+        params: arg,
+      }),
+    }),
     orders: build.query({
       query: (id) => ({
         url: `api/v1/orders/${id}`,
@@ -29,5 +36,9 @@ export const orderApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useOrderMutation, useOrdersQuery, useDeleteOrderMutation } =
-  orderApi;
+export const {
+  useOrderMutation,
+  useOrdersQuery,
+  useDeleteOrderMutation,
+  useAllOrdersQuery,
+} = orderApi;

@@ -1,15 +1,13 @@
 "use client";
-import { useGetPackagesQuery } from "@/redux/api/packageApi";
+import { useAllOrdersQuery } from "@/redux/api/order";
 import { useAppDispatch } from "@/redux/hooks";
-import { ITrips } from "@/types";
-import Link from "next/link";
 import { useState } from "react";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import { toast } from "react-toastify";
 //AiTwotoneDelete
-const AllPackages = () => {
+const AllOrders = () => {
   const dispatch = useAppDispatch();
   const query: Record<string, any> = {};
   const [limit, setLimit] = useState<number>(10);
@@ -19,7 +17,8 @@ const AllPackages = () => {
   query["page"] = page;
   query["searchTerm"] = searchTerm;
 
-  const { data, isLoading } = useGetPackagesQuery({ ...query });
+  const { data, isLoading } = useAllOrdersQuery({ ...query });
+  // console.log("Data:", data);
   const totalPage = Math.ceil(data?.meta?.total / limit);
 
   if (isLoading) {
@@ -52,7 +51,7 @@ const AllPackages = () => {
   return (
     <div className="lg:w-full">
       <div className=" bg-slate-300 flex items-center justify-between  ">
-        <h1 className=" text-xl font-bold ">All Packages</h1>
+        <h1 className=" text-xl font-bold ">All Orders List</h1>
         <div className=" flex items-center justify-center px-5 ">
           <div className=" flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
             <input
@@ -72,8 +71,8 @@ const AllPackages = () => {
           <thead className=" w-screen  text-white ">
             <tr className=" ">
               <th className=" py-3 bg-cyan-800 ">S.NO</th>
-              <th className=" py-3 bg-cyan-800 ">Title</th>
-              <th className=" py-3 bg-cyan-800 ">Category</th>
+              <th className=" py-3 bg-cyan-800 ">Name</th>
+              <th className=" py-3 bg-cyan-800 ">Contact No</th>
               <th className=" py-3 bg-cyan-800 ">Price</th>
               <th className=" py-3 bg-cyan-800 ">Location</th>
               <th className=" py-3 bg-cyan-800 ">Action</th>
@@ -87,10 +86,10 @@ const AllPackages = () => {
               >
                 {/* hover:scale-105 */}
                 <td>{index + 1}</td>
-                <td>{item.title}</td>
-                <td>{item.category} </td>
-                <td>{item.price}$ </td>
-                <td>{item.locationValue} </td>
+                <td>{item.name}</td>
+                <td>{item.phone} </td>
+                <td>{item.totalPrice}$ </td>
+                <td>locationValue </td>
                 <td className=" gap-3 ">
                   <button className=" px-2 hover:text-green-500  ">
                     <BiEdit size={30} />
@@ -129,4 +128,4 @@ const AllPackages = () => {
   );
 };
 
-export default AllPackages;
+export default AllOrders;

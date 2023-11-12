@@ -91,7 +91,7 @@ const PackageCard = () => {
         </p>
       </div>
       {/*=========== hero card================== */}
-      <h1 className=" text-black text-center ">Package Card</h1>
+
       {/* flex flex-wrap items-center justify-center pt-10 gap-5 */}
       <div className=" flex flex-wrap items-center justify-center py-10 gap-5 ">
         {isLoading && <Loading />}

@@ -5,9 +5,7 @@ const SideBar = () => {
   return (
     <div className=" px-5 pt-5 ">
       <div className=" flex flex-col gap-3 ">
-        <Link href="/dashboard">
-          <h3>DashBoard</h3>
-        </Link>
+        <h3 className=" text-xl font-bold ">DashBoard</h3>
         <Link href="/dashboard/add-package">
           <button> Add Package </button>
         </Link>
