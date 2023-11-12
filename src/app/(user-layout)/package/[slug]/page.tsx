@@ -1,5 +1,5 @@
 "use client";
-import Booking from "@/components/Booking";
+
 import ClientOnly from "@/components/ClientOnly";
 import DateRangePickerComponent from "@/components/cart/DateRange";
 import Rating from "@/components/review/Rating";

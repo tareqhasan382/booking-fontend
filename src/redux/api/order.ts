@@ -10,9 +10,24 @@ export const orderApi = baseApi.injectEndpoints({
         method: "POST",
         data: payload,
       }),
-      // invalidatesTags: ["user"],
+      invalidatesTags: ["order"],
+    }),
+    orders: build.query({
+      query: (id) => ({
+        url: `api/v1/orders/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["order"],
+    }),
+    deleteOrder: build.mutation({
+      query: (id: string) => ({
+        url: `api/v1/order/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["order"],
     }),
   }),
 });
 
-export const { useOrderMutation } = orderApi;
+export const { useOrderMutation, useOrdersQuery, useDeleteOrderMutation } =
+  orderApi;

@@ -27,3 +27,17 @@
 //     </div>
 //   ));
 // }
+
+// const reservedBookWithTrip = await prisma.reservedBook.findUnique({
+//     where: {
+//       id: "your_reserved_book_id_here",
+//     },
+//     include: {
+//       trips: {
+//         include: {
+//           user: true,
+//           reviews: true,
+//         },
+//       },
+//     },
+//   });

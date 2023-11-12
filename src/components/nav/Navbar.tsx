@@ -44,7 +44,7 @@ const Navbar = () => {
                 <Link href="/package">About</Link>
               </li>
               <li className={styles.navlink}>
-                <Link href="/">CheckOut</Link>
+                <Link href="/orders">CheckOut</Link>
               </li>
               <li className={styles.navlink}>
                 <Link href="/cart">
@@ -101,13 +101,13 @@ const Navbar = () => {
             <ul>
               <li className=" py-3 hover:underline hover:decoration-red-500  ">
                 {" "}
-                <Link onClick={() => setMenuOpen(false)} href="/about">
+                <Link onClick={() => setMenuOpen(false)} href="/package">
                   About
                 </Link>{" "}
               </li>
               <li className=" py-3 hover:underline hover:decoration-red-500  ">
                 {" "}
-                <Link onClick={() => setMenuOpen(false)} href="/">
+                <Link onClick={() => setMenuOpen(false)} href="/orders">
                   CheckOut
                 </Link>{" "}
               </li>

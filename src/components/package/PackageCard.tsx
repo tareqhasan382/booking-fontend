@@ -12,16 +12,25 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { BsSearch } from "react-icons/bs";
+import { useDebounced } from "@/hooks/hooks";
 const PackageCard = () => {
   const dispatch = useAppDispatch();
   const query: Record<string, any> = {};
   const [limit, setLimit] = useState<number>(4);
   const [page, setPage] = useState<number>(1);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   query["limit"] = limit;
   query["page"] = page;
-  //limit , page , total
-
+  //============Debounced=== hooks create korbo than import korbo ===============
+  const debouncedTerm = useDebounced({
+    searchQuery: searchTerm,
+    delay: 600, // 0.6 second
+  });
+  if (!!debouncedTerm) {
+    query["searchTerm"] = searchTerm;
+  }
+  //============Debounced==================
   const { data, isLoading } = useGetPackagesQuery({ ...query });
   const totalPage = Math.ceil(data?.meta?.total / limit);
 
@@ -48,6 +57,7 @@ const PackageCard = () => {
       <div className=" pt-3 flex items-center justify-center px-5 ">
         <div className=" flex gap-2 border border-gray-300 rounded-full py-2 mt-5 px-4 shadow-md shadow-gray-300">
           <input
+            onChange={(e) => setSearchTerm(e.target.value)}
             type="text"
             placeholder="Anywhere"
             className="rounded-full font-xl px-1 "

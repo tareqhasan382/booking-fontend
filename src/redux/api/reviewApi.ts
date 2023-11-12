@@ -8,7 +8,7 @@ export const reviewApi = baseApi.injectEndpoints({
         method: "POST",
         data: payload,
       }),
-      // invalidatesTags: ["user"],
+      invalidatesTags: ["review"],
     }),
     getReviewId: build.query({
       query: (id) => ({
@@ -22,7 +22,7 @@ export const reviewApi = baseApi.injectEndpoints({
         url: `api/v1/review/${id}`,
         method: "GET",
       }),
-
+      providesTags: ["review"],
       // transformResponse: (response: ITrips) => {
       //   return {
       //     package: response,
