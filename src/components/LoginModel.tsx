@@ -11,6 +11,7 @@ import { useUserLoginMutation } from "@/redux/api/authApi";
 import { getUserInfo, storeUserInfo } from "@/utils/auth.service";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 const LoginModel = () => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const LoginModel = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
     console.log(data);
     const res: any = await userLogin({ ...data }).unwrap();
-    console.log("Response:", res);
+    //console.log("Response:", res);
     if (res?.accessToken) {
       storeUserInfo({ token: res.accessToken });
       router.refresh();
@@ -38,7 +39,7 @@ const LoginModel = () => {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 mb-14 ">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
           width={200}
@@ -116,12 +117,12 @@ const LoginModel = () => {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{" "}
-          <a
-            href="#"
+          <Link
+            href="/register"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
           >
-            Start a 14 day free trial
-          </a>
+            SignUp
+          </Link>
         </p>
       </div>
     </div>
