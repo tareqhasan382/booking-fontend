@@ -102,7 +102,7 @@ const PackageCard = () => {
           >
             <div className=" object-cover ">
               <Image
-                src="/images/cardimg.jpg"
+                src={item?.imageSrc}
                 height={400}
                 width={400}
                 alt="img"
@@ -110,12 +110,8 @@ const PackageCard = () => {
               />
             </div>
             <div className=" w-full text-black flex flex-col items-center justify-center ">
-              <h3 className=" text-lg font-bold ">Graphic Design </h3>
-              <p>
-                In publishing and graphic design, Lorem ipsum is a placeholder
-                text commonly used to demonstrate the visual form of a document
-                or a typeface without relying on meaningful content.
-              </p>
+              <h3 className=" text-lg font-bold ">{item?.title} </h3>
+              <p>{item?.description}</p>
 
               <div className=" py-2 flex flex-row items-center justify-around gap-10 ">
                 <p>Price: $20</p>

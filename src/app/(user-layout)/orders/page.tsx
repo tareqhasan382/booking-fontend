@@ -5,7 +5,6 @@ const page = () => {
   return (
     <div className=" lg:px-48 md:px-20 h-auto  w-full ">
       <div className="flex flex-col justify-center items-center pt-10 text-black px-7 pb-10 ">
-        <h1>Orders</h1>
         <Orders />
       </div>
     </div>

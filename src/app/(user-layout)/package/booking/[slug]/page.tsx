@@ -65,7 +65,7 @@ const DetailsPage = ({ params }: any) => {
         position: toast.POSITION.TOP_RIGHT,
       });
       reset();
-      router.push("/");
+      router.push("/orders");
     } else {
       toast.error(res?.message, {
         position: toast.POSITION.TOP_RIGHT,
