@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Travel_Tours_0"></a>Travel Tours</h1>
+<h2 class="code-line" data-line-start=1 data-line-end=2 ><a id="_Travel_Tours_Packages_Reservation__1"></a><em>Travel Tours Packages Reservation</em></h2>
+<p class="has-line-data" data-line-start="3" data-line-end="4">The main focus of this implement CRUD operations and Secure Dashboard , reservation, pagination and filtering using NextJs Redux.</p>
+<h1 class="code-line" data-line-start=4 data-line-end=5 ><a id="Technology_Stack_4"></a>Technology Stack:</h1>
+<ul>
+<li class="has-line-data" data-line-start="5" data-line-end="6">Use TypeScript as the Programming Language.</li>
+<li class="has-line-data" data-line-start="6" data-line-end="7">Use NextJs as the web framework.</li>
+<li class="has-line-data" data-line-start="7" data-line-end="8">Use State Management in Redux</li>
+<li class="has-line-data" data-line-start="8" data-line-end="9">Use Image Upload Manage in cloudinary</li>
+<li class="has-line-data" data-line-start="9" data-line-end="11">Use Axios || jwt-decode || react-hook-form || react-toastify || react-date-range …</li>
+</ul>
+<h3 class="code-line" data-line-start=11 data-line-end=12 ><a id="Live_Link_httpsbookingfontendvercelapp_11"></a>Live Link: <a href="https://booking-fontend.vercel.app/">https://booking-fontend.vercel.app/</a></h3>
+<h1 class="code-line" data-line-start=12 data-line-end=13 ><a id="_Application_12"></a>. Application:</h1>
+<p class="has-line-data" data-line-start="13" data-line-end="16">This Project Two part public user and administrator.<br>
+administrator are manage project like ADD Package , update , delete all access.<br>
+public user login then packages reservation and packages reviews add otherwise redirect to login page.</p>
+<pre><code>                                  © Tareq </code></pre>
