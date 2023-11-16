@@ -103,6 +103,7 @@ const PackageCard = () => {
             <div className=" object-cover ">
               <Image
                 src={item?.imageSrc}
+                loading="lazy"
                 height={400}
                 width={400}
                 alt="img"

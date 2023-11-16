@@ -22,6 +22,7 @@ const Navbar = () => {
   const logout = () => {
     removeUserInfo(authKey);
     router.refresh();
+    router.push("/login");
     setMenuOpen(false);
   };
   return (
