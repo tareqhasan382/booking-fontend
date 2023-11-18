@@ -1,10 +1,8 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { CldUploadWidget } from "next-cloudinary";
-import Image from "next/image";
+
 import { ChangeEvent } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { TbPhotoPlus } from "react-icons/tb";
+
 declare global {
   var cloudinary: any;
 }
@@ -27,7 +25,6 @@ import { useAddPackagesMutation } from "@/redux/api/packageApi";
 import { useState } from "react";
 import { getUserInfo } from "@/utils/auth.service";
 import { toast } from "react-toastify";
-import { ValidationSchema } from "./ValidationSchema";
 
 const AddPackage = () => {
   const router = useRouter();
