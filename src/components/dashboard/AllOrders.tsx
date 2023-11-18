@@ -74,7 +74,7 @@ const AllOrders = () => {
               <th className=" py-3 bg-cyan-800 ">Name</th>
               <th className=" py-3 bg-cyan-800 ">Contact No</th>
               <th className=" py-3 bg-cyan-800 ">Price</th>
-              <th className=" py-3 bg-cyan-800 ">Location</th>
+              <th className=" py-3 bg-cyan-800 ">Status</th>
               <th className=" py-3 bg-cyan-800 ">Action</th>
             </tr>
           </thead>
@@ -89,7 +89,7 @@ const AllOrders = () => {
                 <td>{item.name}</td>
                 <td>{item.phone} </td>
                 <td>{item.totalPrice}$ </td>
-                <td>locationValue </td>
+                <td>{item.status} </td>
                 <td className=" gap-3 ">
                   <button className=" px-2 hover:text-green-500  ">
                     <BiEdit size={30} />

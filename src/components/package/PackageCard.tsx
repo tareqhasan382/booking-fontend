@@ -111,9 +111,17 @@ const PackageCard = () => {
               />
             </div>
             <div className=" w-full text-black flex flex-col items-center justify-center ">
-              <h3 className=" text-lg font-bold ">{item?.title} </h3>
-              <p>{item?.description}</p>
-
+              <h3 className=" text-lg font-bold ">
+                {item?.title && item?.title.length > 24
+                  ? `${item.title.slice(0, 24)}...`
+                  : item?.title}{" "}
+              </h3>
+              {/* <p>{item?.description}</p> */}
+              <p>
+                {item?.description && item?.description.length > 175
+                  ? `${item.description.slice(0, 175)}...`
+                  : item?.description}
+              </p>
               <div className=" py-2 flex flex-row items-center justify-around gap-10 ">
                 <p>Price: $20</p>
                 <p
